@@ -36,10 +36,15 @@ jobs:
           NODE_ENV: production
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
+      - name: Add .nojekyll file
+        run: touch dist/.nojekyll
+
       - name: Verify build output
         run: |
           echo "Checking dist directory..."
           ls -la dist/
+          echo "Checking dist/assets directory..."
+          ls -la dist/assets/
           echo "Checking dist/index.html..."
           cat dist/index.html
 
