@@ -1,0 +1,7 @@
+{
+  "name": "Smart AC Simulator",
+  "description": "A comprehensive split-system air conditioner simulator with a realistic hardware view, a software remote control, and AI-powered voice command simulation.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
