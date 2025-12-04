@@ -115,13 +115,13 @@ export const RemoteControl: React.FC<RemoteControlProps> = ({ state, onUpdate, o
           </button>
 
           {/* Temp Control */}
-          <div className="col-span-2 bg-gray-200 rounded-full flex items-center justify-between p-2 shadow-inner">
-             <button onClick={() => adjustTemp(-1)} className="w-12 h-12 bg-white rounded-full shadow flex items-center justify-center active:scale-95 transition-transform">
-                <Minus className="w-5 h-5 text-gray-600" />
-             </button>
-             <span className="text-sm font-bold text-gray-500 uppercase">Temp</span>
+          <div className="col-span-2 bg-gray-200 rounded-3xl flex flex-col items-center justify-between p-2 shadow-inner">
              <button onClick={() => adjustTemp(1)} className="w-12 h-12 bg-white rounded-full shadow flex items-center justify-center active:scale-95 transition-transform">
                 <Plus className="w-5 h-5 text-gray-600" />
+             </button>
+             <span className="text-xs font-bold text-gray-500 uppercase">Temp</span>
+             <button onClick={() => adjustTemp(-1)} className="w-12 h-12 bg-white rounded-full shadow flex items-center justify-center active:scale-95 transition-transform">
+                <Minus className="w-5 h-5 text-gray-600" />
              </button>
           </div>
 
