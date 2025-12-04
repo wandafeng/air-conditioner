@@ -77,7 +77,7 @@ export const ACUnit: React.FC<ACUnitProps> = ({ state }) => {
         </div>
 
         {/* Brand Logo Mock */}
-        <div className="absolute top-8 left-1/2 transform -translate-x-1/2">
+        <div className="absolute top-8 left-8">
            <span className="text-gray-300 font-bold italic tracking-wider text-lg">GEMINI AIR</span>
         </div>
 
