@@ -33,7 +33,15 @@ jobs:
       - name: Build
         run: npm run build
         env:
+          NODE_ENV: production
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Verify build output
+        run: |
+          echo "Checking dist directory..."
+          ls -la dist/
+          echo "Checking dist/index.html..."
+          cat dist/index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
