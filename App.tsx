@@ -61,10 +61,10 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen p-4 md:p-8 flex flex-col gap-8 max-w-7xl mx-auto">
+    <div className="min-h-screen p-4 md:p-6 flex flex-col gap-6 max-w-5xl mx-auto">
       
       {/* Header Info Bar */}
-      <div className="bg-white rounded-2xl p-4 shadow-sm flex flex-wrap gap-6 items-center justify-between text-sm text-gray-600">
+      <div className="bg-white rounded-xl p-3 shadow-sm flex flex-wrap gap-4 items-center justify-between text-xs text-gray-600">
          <div className="flex items-center gap-2">
             <Thermometer className="w-5 h-5 text-red-400" />
             <span className="font-semibold">Outdoor: {acState.outdoorTemp}°C</span>
@@ -84,14 +84,14 @@ const App: React.FC = () => {
       </div>
 
       {/* Main Grid Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
         {/* Left Column: Remote Control (Taking up 5 cols) */}
         <div className="lg:col-span-5 flex flex-col items-center justify-start pt-4">
            <div className="sticky top-8 w-full max-w-sm">
-             <div className="mb-4 text-center">
-               <h2 className="text-2xl font-bold text-gray-800 mb-1">Smart Control</h2>
-               <p className="text-gray-500 text-sm">Tap or use AI voice commands</p>
+             <div className="mb-3 text-center">
+               <h2 className="text-xl font-bold text-gray-800 mb-1">Smart Control</h2>
+               <p className="text-gray-500 text-xs">Tap or use AI voice commands</p>
              </div>
              <RemoteControl 
                state={acState} 

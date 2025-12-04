@@ -39,7 +39,7 @@ export const ACUnit: React.FC<ACUnitProps> = ({ state }) => {
   };
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto my-8 perspective-1000">
+    <div className="relative w-full max-w-2xl mx-auto my-6 perspective-1000">
       {/* Wall shadow */}
       <div className="absolute top-4 left-4 right-[-10px] bottom-[-20px] bg-black/10 blur-xl rounded-2xl" />
 
