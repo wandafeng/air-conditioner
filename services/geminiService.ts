@@ -1,13 +1,19 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { ACState, ACMode, FanSpeed } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY || "";
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 export const interpretVoiceCommand = async (
   command: string,
   currentState: ACState
 ): Promise<{ settings?: Partial<ACState>; reply: string }> => {
   try {
+    if (!ai) {
+      return {
+        reply: "AI assistant is not configured. Please add your Gemini API key.",
+      };
+    }
     const prompt = `
       Current AC State: ${JSON.stringify(currentState)}
       User Command: "${command}"
