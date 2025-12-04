@@ -91,38 +91,18 @@ const App: React.FC = () => {
            <div className="sticky top-8 w-full max-w-sm">
              <div className="mb-3 text-center">
                <h2 className="text-xl font-bold text-gray-800 mb-1">Smart Control</h2>
-               <p className="text-gray-500 text-xs">Tap or use AI voice commands</p>
              </div>
-             <RemoteControl 
-               state={acState} 
-               onUpdate={updateState} 
+             <RemoteControl
+               state={acState}
+               onUpdate={updateState}
                onVoiceCommand={handleVoiceCommand}
              />
-             
-             {/* Quick Status Cards */}
-             <div className="mt-8 grid grid-cols-2 gap-4">
-                <div className="bg-white p-4 rounded-2xl shadow-sm text-center border border-gray-100">
-                   <div className="text-xs text-gray-400 uppercase font-bold">Filter Status</div>
-                   <div className="text-green-500 font-bold mt-1">Clean</div>
-                </div>
-                <div className="bg-white p-4 rounded-2xl shadow-sm text-center border border-gray-100">
-                   <div className="text-xs text-gray-400 uppercase font-bold">Total Run Time</div>
-                   <div className="text-gray-700 font-bold mt-1">4h 20m</div>
-                </div>
-             </div>
            </div>
         </div>
 
         {/* Right Column: Visual Unit & Stats (Taking up 7 cols) */}
         <div className="lg:col-span-7 flex flex-col gap-6">
           <ACUnit state={acState} />
-          
-          {/* AI Feedback Toast */}
-          {aiMessage && (
-            <div className="bg-blue-600 text-white p-4 rounded-xl shadow-lg animate-bounce flex items-center justify-center">
-              <span className="font-medium">🤖 {aiMessage}</span>
-            </div>
-          )}
         </div>
 
       </div>

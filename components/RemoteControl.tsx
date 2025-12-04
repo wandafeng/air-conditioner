@@ -15,8 +15,6 @@ interface RemoteControlProps {
 }
 
 export const RemoteControl: React.FC<RemoteControlProps> = ({ state, onUpdate, onVoiceCommand }) => {
-  const [voiceInput, setVoiceInput] = useState('');
-  const [isProcessingVoice, setIsProcessingVoice] = useState(false);
 
   const togglePower = () => onUpdate({ power: !state.power });
   
@@ -40,17 +38,6 @@ export const RemoteControl: React.FC<RemoteControlProps> = ({ state, onUpdate, o
     const currentIndex = speeds.indexOf(state.fanSpeed);
     const nextSpeed = speeds[(currentIndex + 1) % speeds.length];
     onUpdate({ fanSpeed: nextSpeed });
-  };
-
-  const handleVoiceSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!voiceInput.trim()) return;
-    
-    setIsProcessingVoice(true);
-    // Call the parent handler which triggers the API
-    await onVoiceCommand(voiceInput);
-    setVoiceInput('');
-    setIsProcessingVoice(false);
   };
 
   return (
@@ -163,30 +150,6 @@ export const RemoteControl: React.FC<RemoteControlProps> = ({ state, onUpdate, o
           </button>
        </div>
 
-       {/* Smart Voice Input */}
-       <div className="mt-4 bg-white p-3 rounded-2xl shadow-sm border border-gray-100">
-          <form onSubmit={handleVoiceSubmit} className="relative flex items-center">
-             <input 
-               type="text" 
-               value={voiceInput}
-               onChange={(e) => setVoiceInput(e.target.value)}
-               placeholder="AI Command: 'Make it cozy'..."
-               className="w-full bg-gray-50 rounded-xl py-3 pl-4 pr-12 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100"
-               disabled={isProcessingVoice}
-             />
-             <button 
-               type="submit" 
-               disabled={isProcessingVoice}
-               className="absolute right-2 p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 transition-colors"
-             >
-               {isProcessingVoice ? (
-                 <Activity className="w-4 h-4 animate-spin" />
-               ) : (
-                 <Mic className="w-4 h-4" />
-               )}
-             </button>
-          </form>
-       </div>
     </div>
   );
 };
